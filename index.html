@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Imam Fakih | Procurement &amp; Web Developer</title>
+<meta name="description" content="Portfolio Muhamad Imam Abdul Fakih: Procurement Staff dengan pengalaman end-to-end dan pengembang aplikasi web Point of Sales untuk UMKM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#0b0b10; --fg:#f3f3ee; --mut:#8f8fa3; --card:#13131b; --line:#252534; --acc:#c8ff3d; --ink:#0b0b10; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; overflow-x:clip; }
+  body { font-family:"Inter",system-ui,sans-serif; background:var(--bg); color:var(--fg); line-height:1.65; overflow-x:clip; }
+  h1,h2,h3 { font-family:"Space Grotesk","Inter",sans-serif; }
+  a { color:inherit; text-decoration:none; }
+  ::selection { background:var(--acc); color:var(--ink); }
+
+  nav { position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:14px 5vw; background:rgba(11,11,16,.85); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
+  .logo { font-family:"Space Grotesk"; font-weight:700; letter-spacing:1px; }
+  .logo span { color:var(--acc); }
+  .links { display:flex; gap:26px; }
+  .links a { font-size:14px; color:var(--mut); transition:color .2s; }
+  .links a:hover { color:var(--fg); }
+  .burger { display:none; background:none; border:1px solid var(--line); color:var(--fg); border-radius:10px; padding:6px 12px; font-size:14px; cursor:pointer; }
+
+  section { max-width:1120px; margin:0 auto; padding:100px 5vw 20px; }
+  .kick { font-size:12px; letter-spacing:2.5px; text-transform:uppercase; color:var(--acc); margin-bottom:12px; }
+  h2 { font-size:clamp(30px,5vw,54px); line-height:1.05; letter-spacing:-.03em; margin-bottom:38px; }
+  h2 span { color:var(--acc); }
+  .rv { opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease; }
+  .rv.in { opacity:1; transform:none; }
+
+  /* hero */
+  #home { min-height:88vh; display:grid; grid-template-columns:1.3fr .7fr; gap:40px; align-items:center; padding-top:70px; }
+  .hi { color:var(--mut); margin-bottom:10px; }
+  .hi b { color:var(--fg); font-weight:500; }
+  h1 { font-size:clamp(64px,12vw,160px); line-height:.86; letter-spacing:-.05em; text-transform:uppercase; }
+  h1 .o { color:transparent; -webkit-text-stroke:2px var(--fg); }
+  .sub { margin-top:24px; font-size:clamp(16px,1.8vw,20px); color:var(--mut); max-width:540px; }
+  .sub b { color:var(--fg); font-weight:500; }
+  .roles { display:flex; flex-wrap:wrap; gap:8px; margin:22px 0 28px; }
+  .role { padding:6px 14px; border-radius:999px; border:1px solid var(--line); font-size:13px; background:var(--card); }
+  .role:first-child { background:var(--acc); color:var(--ink); border-color:var(--acc); font-weight:600; }
+  .btns { display:flex; gap:12px; flex-wrap:wrap; }
+  .btn { display:inline-block; padding:14px 26px; border-radius:999px; font-weight:600; font-size:15px; border:1.5px solid var(--line); transition:background .2s,color .2s,border-color .2s; }
+  .btn:hover { border-color:var(--acc); }
+  .btn.p { background:var(--acc); color:var(--ink); border-color:var(--acc); }
+  .btn.p:hover { background:var(--fg); border-color:var(--fg); }
+
+  .photo { position:relative; width:min(340px,80vw); aspect-ratio:3/4; margin:auto; border-radius:30px; overflow:hidden; background:linear-gradient(160deg,#1a1a26,#0e0e15); border:1.5px solid var(--line); display:flex; align-items:center; justify-content:center; box-shadow:0 30px 70px rgba(0,0,0,.5); }
+  .photo img { width:100%; height:100%; object-fit:cover; }
+  .photo b { font-family:"Space Grotesk"; font-size:140px; color:var(--acc); letter-spacing:-8px; }
+
+  .kw { display:flex; flex-wrap:wrap; gap:10px 26px; padding:20px 5vw; margin-top:50px; border-block:1px solid var(--line); justify-content:center; font-family:"Space Grotesk"; font-size:clamp(16px,2.2vw,22px); color:var(--mut); }
+  .kw span:nth-child(odd) { color:var(--fg); }
+
+  /* bento */
+  .bento { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:24px; padding:26px; transition:border-color .25s; }
+  .cell:hover { border-color:color-mix(in srgb,var(--acc) 55%,transparent); }
+  .cell h3 { font-size:13px; font-weight:500; color:var(--mut); margin-bottom:12px; text-transform:uppercase; letter-spacing:1.6px; }
+  .cell p { color:var(--mut); }
+  .cell p b { color:var(--fg); font-weight:500; }
+  .w2 { grid-column:span 2; } .h2r { grid-row:span 2; }
+  .accent { background:var(--acc); color:var(--ink); border-color:var(--acc); }
+  .accent h3, .accent p, .accent p b { color:rgba(11,11,16,.75); }
+  .big { font-family:"Space Grotesk"; font-weight:700; font-size:clamp(56px,8vw,96px); line-height:.95; letter-spacing:-.05em; }
+  .pill { display:inline-block; margin:4px 4px 0 0; padding:5px 12px; border-radius:999px; font-size:13px; border:1px solid var(--line); }
+  .bar { margin-bottom:14px; }
+  .bar .t { font-size:14px; margin-bottom:6px; }
+  .bar .tr { height:7px; background:var(--line); border-radius:99px; overflow:hidden; }
+  .bar .tr i { display:block; height:100%; background:var(--acc); border-radius:99px; }
+
+  /* flow (klik manual) */
+  .flow { display:grid; grid-template-columns:repeat(6,1fr); gap:8px; margin-bottom:22px; }
+  .node { text-align:center; cursor:pointer; padding:14px 6px; border-radius:18px; border:1px solid var(--line); background:var(--card); transition:border-color .2s, background .2s; }
+  .node b { display:block; font-size:24px; margin-bottom:6px; }
+  .node span { font-size:12.5px; color:var(--mut); line-height:1.3; display:block; }
+  .node:hover { border-color:var(--acc); }
+  .node.on { border-color:var(--acc); background:color-mix(in srgb,var(--acc) 12%,var(--card)); }
+  .node.on span { color:var(--fg); }
+  .info { padding:24px 28px; border-radius:20px; background:var(--card); border:1px dashed color-mix(in srgb,var(--acc) 55%,transparent); min-height:108px; }
+  .info h3 { font-size:21px; color:var(--acc); margin-bottom:4px; }
+  .info p { color:var(--mut); max-width:700px; }
+
+  /* experience */
+  .job { display:grid; grid-template-columns:.55fr 1fr; gap:30px; padding:30px 0; border-top:1px solid var(--line); }
+  .job:last-child { border-bottom:1px solid var(--line); }
+  .job .when { font-size:13px; color:var(--acc); letter-spacing:1px; }
+  .job h3 { font-size:clamp(24px,3vw,34px); line-height:1.1; margin:6px 0; letter-spacing:-.02em; }
+  .job .co { color:var(--mut); font-size:15px; }
+  .job ul { list-style:none; }
+  .job li { position:relative; padding:0 0 10px 20px; color:var(--mut); font-size:15px; }
+  .job li::before { content:"→"; position:absolute; left:0; color:var(--acc); }
+  .now { display:inline-block; margin-top:12px; font-size:11px; padding:3px 11px; border-radius:999px; background:var(--acc); color:var(--ink); font-weight:700; letter-spacing:1px; }
+
+  /* proyek */
+  .pgrid { display:grid; grid-template-columns:1.1fr .9fr; gap:16px; }
+  .proj { background:var(--card); border:1px solid var(--line); border-radius:26px; padding:28px; }
+  .proj .meta { font-size:12.5px; color:var(--acc); letter-spacing:1px; }
+  .proj h3 { font-size:24px; letter-spacing:-.02em; margin:6px 0 8px; }
+  .proj > p { color:var(--mut); font-size:15px; }
+  .tags span { display:inline-block; margin:14px 6px 0 0; font-size:12px; padding:4px 12px; border-radius:999px; border:1px solid var(--line); color:var(--mut); }
+  .mock { margin-top:22px; border-radius:16px; background:#0c0c12; border:1px solid var(--line); overflow:hidden; }
+  .mock .top { padding:9px 14px; border-bottom:1px solid var(--line); font-size:11px; color:var(--mut); }
+  .pos { display:grid; grid-template-columns:1.1fr .9fr; min-height:200px; }
+  .items { padding:12px; display:grid; grid-template-columns:1fr 1fr; gap:8px; align-content:start; }
+  .it { padding:10px; border-radius:12px; background:#16161f; border:1px solid var(--line); font-size:12px; cursor:pointer; transition:border-color .2s; text-align:left; color:var(--fg); font-family:inherit; }
+  .it:hover { border-color:var(--acc); }
+  .it small { display:block; color:var(--mut); font-size:11px; }
+  .it .e { font-size:20px; display:block; }
+  .cart { padding:12px; border-left:1px solid var(--line); display:flex; flex-direction:column; font-size:12px; }
+  .cart .rows { flex:1; min-height:88px; }
+  .cart .r { display:flex; justify-content:space-between; padding:4px 0; color:var(--mut); }
+  .cart .tot { display:flex; justify-content:space-between; padding-top:10px; border-top:1px dashed var(--line); font-weight:600; font-size:14px; }
+  .cart .tot b { color:var(--acc); }
+  .pay { margin-top:8px; padding:8px; border-radius:10px; background:var(--acc); color:var(--ink); font-weight:700; border:none; cursor:pointer; font-family:inherit; font-size:13px; }
+  .chart { display:flex; align-items:flex-end; gap:10px; height:140px; padding:16px 16px 0; }
+  .chart i { flex:1; border-radius:6px 6px 0 0; background:linear-gradient(var(--acc),color-mix(in srgb,var(--acc) 25%,transparent)); }
+  .chart-l { display:flex; justify-content:space-between; padding:8px 16px 12px; font-size:11px; color:var(--mut); }
+  .note { font-size:11.5px; color:var(--mut); margin-top:10px; opacity:.85; }
+
+  .cert { margin-top:16px; display:grid; grid-template-columns:1.4fr 1fr; gap:16px; }
+  .hki { padding:30px; border-radius:26px; background:linear-gradient(135deg,color-mix(in srgb,var(--acc) 14%,var(--card)),var(--card) 60%); border:1px solid color-mix(in srgb,var(--acc) 45%,transparent); display:flex; gap:22px; align-items:center; }
+  .seal { flex:none; width:72px; height:72px; border-radius:50%; background:var(--acc); color:var(--ink); font-size:32px; display:flex; align-items:center; justify-content:center; }
+  .hki h3 { font-size:20px; }
+  .hki p { color:var(--mut); font-size:14.5px; margin-top:4px; }
+  .hki code { display:inline-block; margin-top:10px; padding:4px 12px; border-radius:10px; background:var(--bg); border:1px solid var(--line); color:var(--acc); font-size:13px; }
+  .komatsu { padding:28px; border-radius:26px; background:var(--card); border:1px solid var(--line); }
+  .komatsu .e { font-size:32px; }
+  .komatsu h3 { font-size:17px; margin:8px 0 4px; }
+  .komatsu p { color:var(--mut); font-size:14px; }
+
+  /* kontak */
+  .contact { text-align:center; padding:80px 5vw; border-radius:36px; background:var(--acc); color:var(--ink); }
+  .contact .kick { color:var(--ink); }
+  .contact h2 { margin-bottom:18px; }
+  .contact h2 span { color:var(--ink); opacity:.55; }
+  .mail { display:inline-block; font-family:"Space Grotesk"; font-weight:700; font-size:clamp(20px,4.2vw,48px); letter-spacing:-.03em; border-bottom:3px solid var(--ink); line-height:1.2; word-break:break-all; }
+  .contact .btns { justify-content:center; margin-top:30px; }
+  .contact .btn { border-color:var(--ink); color:var(--ink); }
+  .contact .btn.p { background:var(--ink); color:var(--acc); }
+  .contact .btn:hover { background:var(--fg); color:var(--ink); border-color:var(--fg); }
+  footer { text-align:center; padding:34px 5vw 50px; color:var(--mut); font-size:13px; }
+
+  @media (max-width:860px) {
+    .links { position:absolute; top:100%; left:0; right:0; flex-direction:column; gap:0; background:var(--bg); border-bottom:1px solid var(--line); display:none; }
+    .links.open { display:flex; }
+    .links a { padding:14px 5vw; border-top:1px solid var(--line); }
+    .burger { display:block; }
+    #home { grid-template-columns:1fr; padding-top:50px; }
+    .photo { order:-1; width:min(240px,62vw); }
+    .bento { grid-template-columns:1fr 1fr; } .w2 { grid-column:span 2; } .h2r { grid-row:auto; }
+    .flow { grid-template-columns:repeat(3,1fr); }
+    .job { grid-template-columns:1fr; gap:14px; }
+    .pgrid,.cert { grid-template-columns:1fr; }
+    .pos { grid-template-columns:1fr; } .cart { border-left:none; border-top:1px solid var(--line); }
+    .hki { flex-direction:column; text-align:center; }
+  }
+  @media (prefers-reduced-motion:reduce) { *{transition:none !important;} .rv{opacity:1;transform:none;} }
+</style>
+</head>
+<body>
+<nav>
+  <a href="#home" class="logo">IMAM<span>.</span>FAKIH</a>
+  <div class="links" id="links">
+    <a href="#about">Tentang</a><a href="#flow">Alur Kerja</a><a href="#exp">Karier</a><a href="#proj">Proyek</a><a href="#contact">Kontak</a>
+  </div>
+  <button class="burger" id="burger">Menu</button>
+</nav>
+
+<main>
+  <section id="home">
+    <div>
+      <p class="hi">Halo, saya <b>Muhamad Imam Abdul Fakih</b></p>
+      <h1>Imam<br><span class="o">Fakih</span></h1>
+      <p class="sub">Procurement Staff yang <b>berkomitmen pada efisiensi rantai pasok</b> dan perbaikan berkelanjutan, sekaligus membangun <b>aplikasi web Point of Sales</b> untuk UMKM.</p>
+      <div class="roles"><span class="role">Procurement</span><span class="role">Vendor Sourcing</span><span class="role">PO · GR · Pembayaran</span><span class="role">Web Aplikasi POS</span></div>
+      <div class="btns">
+        <a href="#proj" class="btn p">Lihat proyek</a>
+        <a href="#contact" class="btn">Hubungi saya</a>
+      </div>
+    </div>
+    <div class="photo">
+      <img src="foto.jpg" alt="Foto Muhamad Imam Abdul Fakih" onerror="this.remove();document.getElementById('ini').style.display='block'">
+      <b id="ini" style="display:none">IF</b>
+    </div>
+  </section>
+
+  <div class="kw"><span>Procurement</span><span>Vendor Sourcing</span><span>Negosiasi Harga</span><span>Purchase Order</span><span>Goods Receipt</span><span>Point of Sales</span><span>UMKM</span></div>
+
+  <section id="about">
+    <div class="kick rv">Tentang saya</div>
+    <h2 class="rv">Rapi di <span>data</span>, tangkas di proses.</h2>
+    <div class="bento">
+      <div class="cell w2 h2r rv">
+        <h3>Profil</h3>
+        <p style="font-size:18px;line-height:1.75"><b>Procurement staff berpengalaman</b> dalam pengelolaan proses pengadaan end-to-end, mulai dari purchase request, vendor sourcing, negosiasi harga, hingga monitoring PO, GR, dan pembayaran.</p>
+        <p style="margin-top:16px">Terbiasa bekerja dengan data, laporan monitoring, serta koordinasi lintas departemen dan vendor untuk memastikan ketepatan waktu, biaya, dan kualitas. Memiliki ketelitian tinggi, kemampuan administrasi yang baik, dan orientasi pada efisiensi proses.</p>
+      </div>
+      <div class="cell accent rv"><h3>Pengalaman</h3><div class="big" id="yrs">7+</div><p style="margin-top:6px">tahun di dunia kerja</p></div>
+      <div class="cell rv"><h3>Proyek POS</h3><div class="big" style="color:var(--acc)">2</div><p style="margin-top:6px">aplikasi web untuk UMKM</p></div>
+      <div class="cell w2 rv"><h3>Pendidikan</h3><p style="font-size:19px"><b>S1, Sekolah Tinggi Ilmu Cipta Komputer</b></p><p>Jakarta · September 2022 – Agustus 2026</p></div>
+      <div class="cell rv">
+        <h3>Teknis</h3>
+        <div class="bar"><div class="t">Microsoft Office</div><div class="tr"><i style="width:100%"></i></div></div>
+        <div class="bar"><div class="t">PHP MySQL</div><div class="tr"><i style="width:50%"></i></div></div>
+        <div class="bar" style="margin:0"><div class="t">CodeIgniter 3</div><div class="tr"><i style="width:50%"></i></div></div>
+      </div>
+      <div class="cell rv"><h3>Interpersonal</h3><span class="pill">Komunikasi</span><span class="pill">Team Work</span><span class="pill">Problem Solving</span><h3 style="margin-top:18px">Bahasa</h3><span class="pill">Indonesia · Cukup Baik</span><span class="pill">English · Pemula</span></div>
+    </div>
+  </section>
+
+  <section id="flow">
+    <div class="kick rv">Cara saya bekerja</div>
+    <h2 class="rv">Pengadaan <span>end-to-end</span>.</h2>
+    <div class="flow rv" id="flowBox"></div>
+    <div class="info rv" id="info"></div>
+  </section>
+
+  <section id="exp">
+    <div class="kick rv">Pengalaman</div>
+    <h2 class="rv">Perjalanan <span>karier</span>.</h2>
+    <div class="rv">
+      <article class="job">
+        <div><div class="when">JUNI 2023 – SEKARANG</div><h3>Foreman Purchasing</h3><div class="co">PT. Hillcon Jayasakti · Jakarta</div><span class="now">SEKARANG</span></div>
+        <ul>
+          <li>Mengelola administrasi dan monitoring procurement end-to-end: Purchase Request, penerbitan dan approval PO, hingga Goods Receipt.</li>
+          <li>Koordinasi persetujuan PO dan tindak lanjut (follow-up) ke vendor terkait realisasi PO dan pengiriman barang.</li>
+          <li>Verifikasi kesesuaian dokumen dan spesifikasi, pencatatan ke sistem, serta pelaporan progres pengadaan.</li>
+          <li>Menjaga ketepatan waktu, akurasi data, dan kepatuhan terhadap prosedur procurement.</li>
+        </ul>
+      </article>
+      <article class="job">
+        <div><div class="when">JUNI 2021 – JUNI 2023</div><h3>Admin Warehouse</h3><div class="co">PT. Hillcon Jayasakti · Jakarta</div></div>
+        <ul>
+          <li>Penerimaan barang dari vendor, serta koordinasi dan pemantauan pengiriman hingga barang diterima oleh tujuan.</li>
+          <li>Administrasi dan pencatatan data ke dalam sistem sejak tahap penerimaan hingga serah terima.</li>
+          <li>Menyusun laporan penerimaan dan pengiriman yang akurat dan terdokumentasi.</li>
+        </ul>
+      </article>
+      <article class="job">
+        <div><div class="when">MEI 2019 – JUNI 2021</div><h3>Admin</h3><div class="co">PT. Miitra Patimas · Tangerang</div></div>
+        <ul>
+          <li>Administrasi operasional: pengelolaan keluar masuk barang dan koordinasi pengiriman produk kepada pelanggan.</li>
+          <li>Pencatatan dan pengendalian transaksi penjualan, serta pengelolaan kas kecil.</li>
+          <li>Menyusun laporan transaksi harian yang akurat dan dapat dipertanggungjawabkan.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="proj">
+    <div class="kick rv">Proyek &amp; sertifikasi</div>
+    <h2 class="rv">Dari meja pengadaan ke <span>kode</span>.</h2>
+    <div class="pgrid">
+      <article class="proj rv">
+        <div class="meta">JANUARI 2026 – SEKARANG</div>
+        <h3>Point of Sales, Web Aplikasi</h3>
+        <p>Deployment aplikasi web Point of Sales untuk membantu UMKM beralih dari pencatatan manual ke sistem digital.</p>
+        <div class="tags"><span>Web Aplikasi</span><span>UMKM</span><span>Digitalisasi</span></div>
+        <div class="mock">
+          <div class="top">Kasir · ilustrasi tampilan</div>
+          <div class="pos">
+            <div class="items" id="items"></div>
+            <div class="cart"><div class="rows" id="rows"></div><div class="tot"><span>Total</span><b id="tot">Rp0</b></div><button class="pay" id="pay">Bayar</button></div>
+          </div>
+        </div>
+        <p class="note">Klik produk untuk mencoba. Data contoh, bukan data asli.</p>
+      </article>
+      <article class="proj rv">
+        <div class="meta">WEB APLIKASI</div>
+        <h3>Point of Sale &amp; Bill of Material</h3>
+        <p>Mengembangkan fitur pengelolaan persediaan bahan baku, transaksi pembelian, penjualan, dan perhitungan Harga Pokok Penjualan (HPP).</p>
+        <div class="tags"><span>Inventory</span><span>Pembelian</span><span>Penjualan</span><span>HPP</span></div>
+        <div class="mock">
+          <div class="top">HPP · ilustrasi</div>
+          <div class="chart"><i style="height:62%"></i><i style="height:48%"></i><i style="height:80%"></i><i style="height:35%"></i><i style="height:70%"></i><i style="height:92%"></i></div>
+          <div class="chart-l"><span>Bahan</span><span>Produksi</span><span>HPP</span></div>
+        </div>
+        <p class="note">Ilustrasi konsep fitur, bukan data asli.</p>
+      </article>
+    </div>
+    <div class="cert">
+      <div class="hki rv">
+        <div class="seal">🏅</div>
+        <div>
+          <h3>HKI, Negara · Januari 2026 – Sekarang</h3>
+          <p>Implementasi Sistem Point Of Sales Untuk Meningkatkan Efisiensi Penjualan Pada UMKM BruleeBites di Jakarta Timur.</p>
+          <code>Nomor EC002026004830</code>
+        </div>
+      </div>
+      <div class="komatsu rv">
+        <div class="e">🚜</div>
+        <h3>Product Knowledge &amp; Part Book Reading Komatsu Product</h3>
+        <p>United Tractors · Maret 2025 – 2026</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact rv">
+      <div class="kick">Kontak</div>
+      <h2>Yuk, <span>ngobrol</span>.</h2>
+      <a class="mail" href="mailto:ia.fakih9@gmail.com">ia.fakih9@gmail.com</a>
+      <div class="btns">
+        <a class="btn p" href="https://linkedin.com/in/muhamad-imam-abdul-fakih-4039483a9" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" id="wa" style="display:none" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>© <span id="yr"></span> Muhamad Imam Abdul Fakih</footer>
+
+<script>
+  // ====== OPSIONAL: nomor WhatsApp format 62xxxxxxxxxx (kosongkan kalau tidak mau tampil) ======
+  const WA = "";
+  // ==========================================================================================
+  const $ = id => document.getElementById(id);
+  const now = new Date().getFullYear();
+  $("yr").textContent = now;
+  $("yrs").textContent = (now - 2019) + "+";
+  if (WA) { $("wa").href = "https://wa.me/" + WA; $("wa").style.display = "inline-block"; }
+
+  $("burger").onclick = () => $("links").classList.toggle("open");
+  document.querySelectorAll("#links a").forEach(a => a.onclick = () => $("links").classList.remove("open"));
+
+  // muncul pelan saat di-scroll
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .12 });
+  document.querySelectorAll(".rv").forEach(n => io.observe(n));
+
+  // alur procurement (klik manual, tidak berjalan sendiri)
+  const steps = [
+    ["📝","Purchase Request","Menerima dan memverifikasi PR, memastikan kesesuaian dokumen dan spesifikasi sebelum diproses."],
+    ["🤝","Vendor & Negosiasi","Mencari vendor dan melakukan negosiasi harga untuk menjaga biaya dan kualitas."],
+    ["✅","Approval PO","Penerbitan Purchase Order dan koordinasi proses persetujuan hingga PO disetujui."],
+    ["📞","Follow-up Vendor","Tindak lanjut ke vendor terkait realisasi PO dan pengiriman barang agar tepat waktu."],
+    ["📦","Goods Receipt","Penerimaan barang, pencatatan ke dalam sistem, dan verifikasi kesesuaian dengan dokumen."],
+    ["📊","Monitoring & Bayar","Monitoring PO, GR, dan pembayaran, plus pelaporan progres untuk akurasi data dan kepatuhan prosedur."]
+  ];
+  steps.forEach((s, i) => {
+    const n = document.createElement("div"); n.className = "node"; n.innerHTML = `<b>${s[0]}</b><span>${s[1]}</span>`;
+    n.onclick = () => pick(i); $("flowBox").appendChild(n);
+  });
+  function pick(i) {
+    [...$("flowBox").children].forEach((c, k) => c.classList.toggle("on", k === i));
+    $("info").innerHTML = `<h3>${i+1}. ${steps[i][1]}</h3><p>${steps[i][2]}</p>`;
+  }
+  pick(0);
+
+  // mockup kasir (data contoh, hanya bereaksi saat diklik)
+  const goods = [["🍮","Produk A",15000],["🥐","Produk B",12000],["☕","Minuman C",18000],["🍪","Produk D",9000]];
+  const rp = n => "Rp" + n.toLocaleString("id-ID");
+  let total = 0;
+  goods.forEach(g => {
+    const d = document.createElement("button"); d.className = "it"; d.innerHTML = `<span class="e">${g[0]}</span>${g[1]}<small>${rp(g[2])}</small>`;
+    d.onclick = () => {
+      total += g[2];
+      const r = document.createElement("div"); r.className = "r"; r.innerHTML = `<span>${g[0]} ${g[1]}</span><span>${rp(g[2])}</span>`;
+      $("rows").appendChild(r); if ($("rows").children.length > 4) $("rows").firstChild.remove();
+      $("tot").textContent = rp(total);
+    };
+    $("items").appendChild(d);
+  });
+  $("pay").onclick = () => { $("rows").innerHTML = ""; total = 0; $("tot").textContent = rp(0); $("pay").textContent = "Lunas ✓"; setTimeout(() => $("pay").textContent = "Bayar", 1200); };
+</script>
+</body>
+</html>
